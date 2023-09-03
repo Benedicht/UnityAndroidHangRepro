@@ -53,11 +53,6 @@ public class StartupManager : MonoBehaviour
         StartCoroutine(InitWww(2));
     }
 
-    class Message
-    {
-        public string msg;
-    }
-
     private IEnumerator InitWww(int index)
     {
         ThreadedLogger.EnqueueMessage($"WWW Init started, {index}, {Time.realtimeSinceStartup}");

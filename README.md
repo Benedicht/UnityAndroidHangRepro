@@ -14,6 +14,8 @@ Doing work on multiple threads (how outrageous) while also asynchronously loadin
 4. When (and if) the new scene is loaded, execute 1. the second time.
 5. If both execution of 1. succeeds, restart the application to do a new repro-turn.
 
+Adding more work on additional threads are increasing reproducibility.
+
 ## Stack Traces
 
 This stack trace is always the same and it's from Unity's main thread:
@@ -83,7 +85,7 @@ Common stack trace (along with the above one) is that goes through the `Metadata
 
 None.
 A few combination of the player settings can delay or reduce the chance of the issue, could find any combination that would ultimately solve it.
-
+While other threads are suspended in the `GC_suspend_handler`, turning on/off incremental GC has no meaningfull effect on it.
 Could reprouduce it on all LTS versions of Unity and with different Android devices. However it seems it's reproducable only on Android.
 
 ## Forewords
